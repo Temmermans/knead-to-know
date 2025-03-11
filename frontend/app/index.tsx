@@ -1,15 +1,18 @@
-import { Text, View } from "react-native";
+import { View } from "react-native";
+import { useState } from "react";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 export default function Index() {
+  const [bgColorUI, setBgColorUI] = useState("#9c634f");
+  const [fontColor, setFontColor] = useState("white");
+  const [bgColorMain, setBgColorMain] = useState("#eee1ba");
   return (
     <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
+      style={{ flex: 1, justifyContent: "space-between", backgroundColor: bgColorMain }}
     >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+      <Header bgColor={bgColorUI} fontColor={fontColor} />
+      <Footer bgColor={bgColorUI} fontColor={bgColorMain} bgColorMain={bgColorMain} />
     </View>
   );
 }
