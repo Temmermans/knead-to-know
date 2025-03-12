@@ -2,6 +2,7 @@ import * as React from "react";
 import { StyleSheet } from "react-native";
 import { Appbar, FAB, useTheme } from "react-native-paper";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { Link } from "expo-router";
 
 const BOTTOM_APPBAR_HEIGHT = 80;
 const MEDIUM_FAB_HEIGHT = 56;
@@ -21,10 +22,19 @@ const Footer = ({ bgColor = "", fontColor = "", bgColorMain = "" }) => {
       ]}
       safeAreaInsets={{ bottom }}
     >
-      <Appbar.Action color={fontColor} icon="archive" onPress={() => {}} />
-      <Appbar.Action color={fontColor} icon="email" onPress={() => {}} />
-      <Appbar.Action color={fontColor} icon="label" onPress={() => {}} />
-      <Appbar.Action color={fontColor} icon="delete" onPress={() => {}} />
+      <Link href="/logbook">
+        <Appbar.Action
+          color={fontColor}
+          icon="book-open-variant"
+          onPress={() => {}}
+        />
+      </Link>
+      <Appbar.Action
+        color={fontColor}
+        icon="clipboard-edit"
+        onPress={() => {}}
+      />
+      <Appbar.Action color={fontColor} icon="bookmark" onPress={() => {}} />
       <FAB
         mode="flat"
         size="medium"
@@ -32,7 +42,10 @@ const Footer = ({ bgColor = "", fontColor = "", bgColorMain = "" }) => {
         onPress={() => {}}
         style={[
           styles.fab,
-          { top: (BOTTOM_APPBAR_HEIGHT - MEDIUM_FAB_HEIGHT) / 2, backgroundColor: bgColorMain },
+          {
+            top: (BOTTOM_APPBAR_HEIGHT - MEDIUM_FAB_HEIGHT) / 2,
+            backgroundColor: bgColorMain,
+          },
         ]}
       />
     </Appbar>
